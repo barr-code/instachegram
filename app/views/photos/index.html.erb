@@ -1,2 +1,10 @@
-<h3>No photos (yet).</h3>
+<% if @photos.any? %>
+	<% @photos.each do |photo| %>
+		<section class="photo">
+			<%= photo.caption %>
+		</section>
+	<% end %>
+<% else %>
+	No photos (yet).
+<% end %>
 <a href="#">Add a photo</a>
