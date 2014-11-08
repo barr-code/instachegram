@@ -1,6 +1,9 @@
-## Week 8 Challenge at Makers Academy: Recreate Instagram!
+## Instachegram: A photo-sharing social media site dedicated to mustaches.
+#### In honor of Movember.
 
-### The Prompt
+### Week 8 Challenge at Makers Academy: Recreate Instagram!
+
+#### The Prompt
 	Your challenge is to build Instagram using Rails. You'll need users who can post
 	pictures, write comments on pictures and like a picture. It will need to look like the
   instagram website or better. 
@@ -12,7 +15,7 @@
 
 	Bonus if you can add filters :P 
 
-### The Tools
+#### The Tools
 	
 	- Ruby
 	- Rails
