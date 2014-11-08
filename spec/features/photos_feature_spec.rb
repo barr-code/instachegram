@@ -24,4 +24,14 @@ describe 'photos' do
 			expect(page).to have_selector "img"
 		end
 	end
+
+	context 'uploading photos through the web' do
+
+		it 'has a photo upload form' do
+			visit '/photos'
+			click_link 'Add a photo'
+			expect(current_path).to eq '/photos/new'
+			expect(page).to have_content 'Upload your photo'
+		end
+	end
 end
