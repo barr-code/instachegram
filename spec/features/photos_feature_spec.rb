@@ -14,13 +14,14 @@ describe 'photos' do
 	context 'there are photos' do
 
 		before do
-			Photo.create(caption: "#nofilter")
+			Photo.create(image: File.open("#{Rails.root}/spec/fixtures/squares.jpg"), caption: "#nofilter")
 		end
 
-		it 'displays photos' do
+		xit 'displays photos' do
 			visit '/photos'
 			expect(page).to have_content "#nofilter"
 			expect(page).not_to have_content "No photos (yet)."
+			expect(page).to have_selector "img"
 		end
 	end
 end
