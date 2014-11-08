@@ -1,8 +1,8 @@
 Upload your photo: 
 <%= form_for Photo.new do |f| %>
 	<%= f.label :image %>
-	<%= f.file_field :image %>
+	<%= f.file_field :image %><br>
 	<%= f.label :caption %>
-	<%= f.text_field :caption %>
+	<%= f.text_field :caption %><br>
 	<%= f.submit %>
 <% end %>

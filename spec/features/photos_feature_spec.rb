@@ -1,4 +1,5 @@
 require 'rails_helper'
+require_relative './helpers/photo_helper'
 
 describe 'photos' do
 
@@ -36,12 +37,22 @@ describe 'photos' do
 
 		it 'photos can be attached via the form' do
 			visit '/photos'
-			click_link 'Add a photo'
-			attach_file 'Image', 'spec/fixtures/squares.jpg'
-			fill_in 'Caption', with: 'Wow, such squares'
-			click_button 'Create Photo'
+			upload_photo
 			expect(page).to have_content 'Wow, such squares'
 			expect(current_path).to eq '/photos'
 		end
+	end
+
+	context 'photo management' do
+
+		it 'photo captions can be edited' do
+			visit '/photos'
+			upload_photo
+      click_link 'Edit caption'
+      fill_in 'Caption', with: '#notallrectangles' 
+      click_button 'Update Photo'
+      expect(page).to have_content '#notallrectangles'
+		end
+
 	end
 end

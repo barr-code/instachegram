@@ -1,11 +1,13 @@
+<p><%= link_to 'Add a photo', new_photo_path %></p>
+
 <% if @photos.any? %>
 	<% @photos.each do |photo| %>
 		<section class="photo">
-			<%= link_to image_tag(photo.image.url(:med)), photo.image.url %>
-			<%= photo.caption %>
+			<%= link_to image_tag(photo.image.url(:med)), photo.image.url %><br>
+			<%= photo.caption %><br>
+			<%= link_to 'Edit caption', edit_photo_path(photo) %>
 		</section>
 	<% end %>
 <% else %>
 	No photos (yet).
 <% end %>
-<%= link_to 'Add a photo', new_photo_path %>
