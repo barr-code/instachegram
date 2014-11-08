@@ -54,5 +54,14 @@ describe 'photos' do
       expect(page).to have_content '#notallrectangles'
 		end
 
+		it 'photos can be deleted' do
+			visit '/photos'
+			upload_photo
+			click_link 'Delete photo'
+			expect(current_path).to eq '/photos'
+			expect(page).not_to have_content 'Wow, such squares'
+			expect(page).to have_content 'Photo was deleted successfully'
+		end
+
 	end
 end
