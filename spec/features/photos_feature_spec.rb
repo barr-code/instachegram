@@ -33,5 +33,15 @@ describe 'photos' do
 			expect(current_path).to eq '/photos/new'
 			expect(page).to have_content 'Upload your photo'
 		end
+
+		it 'photos can be attached via the form' do
+			visit '/photos'
+			click_link 'Add a photo'
+			attach_file 'Image', 'spec/fixtures/squares.jpg'
+			fill_in 'Caption', with: 'Wow, such squares'
+			click_button 'Create Photo'
+			expect(page).to have_content 'Wow, such squares'
+			expect(current_path).to eq '/photos'
+		end
 	end
 end
