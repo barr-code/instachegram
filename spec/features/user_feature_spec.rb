@@ -1,6 +1,6 @@
 require 'rails_helper'
-require_relative './helpers/photo_helper'
-require_relative './helpers/user_helper'
+require_relative 'helpers/photo_helper'
+require_relative 'helpers/user_helper'
 
 context 'user not signed in' do
 

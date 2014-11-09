@@ -15,4 +15,11 @@ describe 'liking photos' do
 		expect(page).to have_content '1 like'
 	end
 
+	it 'users can like each photo once', js: true do
+		visit '/'
+		click_link 'Like'
+		click_link 'Like'
+		expect(page).to have_content '1 like'
+	end
+
 end
