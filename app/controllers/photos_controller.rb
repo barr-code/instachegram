@@ -28,15 +28,15 @@ class PhotosController < ApplicationController
 	end
 
 	def update
-		@photo = Photo.find(params[:id])
+		@photo = current_user.photos.find(params[:id])
     @photo.update(params[:photo].permit(:caption))
     redirect_to photos_path
 	end
 
 	def destroy
 		@photo = current_user.photos.find(params[:id])
-			@photo.destroy
-			flash[:notice] = "Photo was deleted successfully"
-			redirect_to photos_path
+		@photo.destroy
+		flash[:notice] = "Photo was deleted successfully"
+		redirect_to photos_path
 	end
 end

@@ -55,4 +55,13 @@ context 'user photos' do
 		sign_up("different@user.com", "password")
 		expect(page).not_to have_content 'Delete photo'
 	end
+
+	it "cannot edit captions on other people's photos" do
+		sign_up
+		upload_photo
+		expect(page).to have_content 'Edit caption'
+		click_link 'Sign out'
+		sign_up("different@user.com", "password")
+		expect(page).not_to have_content 'Edit caption'
+	end
 end
