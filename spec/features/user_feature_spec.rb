@@ -1,4 +1,6 @@
 require 'rails_helper'
+require_relative './helpers/photo_helper'
+require_relative './helpers/user_helper'
 
 context 'user not signed in' do
 
@@ -18,12 +20,7 @@ end
 context 'user is signed in' do
 
 	before do
-		visit '/'
-		click_link 'Sign up'
-		fill_in 'Email', with: 'test@user.com'
-		fill_in 'Password', with: 'testpass'
-		fill_in 'Password confirmation', with: 'testpass'
-		click_button 'Sign up'
+		sign_up
 	end
 
 	it 'has a "sign out" link' do
@@ -39,5 +36,14 @@ context 'user is signed in' do
 	it 'does not have a "sign in" link' do
 		visit '/'
 		expect(page).not_to have_link 'Sign in'
+	end
+end
+
+context 'user photos' do
+
+	it 'must be signed in to add photos' do
+		visit '/'
+		click_link 'Add a photo'
+		expect(page).to have_content 'You need to sign in or sign up before continuing.'
 	end
 end

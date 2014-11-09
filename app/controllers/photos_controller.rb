@@ -1,4 +1,7 @@
 class PhotosController < ApplicationController
+
+	before_action :authenticate_user!, :except => [:index, :show]
+
 	def index
 		@photos = Photo.all
 	end
@@ -8,8 +11,16 @@ class PhotosController < ApplicationController
 	end
 
 	def create
-		@photo = Photo.create(params[:photo].permit(:image, :caption))
-		redirect_to photos_path
+		if current_user
+			@photo = Photo.new(params[:photo].permit(:image, :caption))
+			@photo.user_id = current_user.id
+		end
+
+		if @photo.save
+			redirect_to photos_path
+		else
+			render 'new'
+		end
 	end
 
 	def edit

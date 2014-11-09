@@ -1,7 +1,12 @@
 require 'rails_helper'
 require_relative './helpers/photo_helper'
+require_relative './helpers/user_helper'
 
 describe 'photos' do
+
+	before do
+		sign_up
+	end
 
 	context 'there are no photos' do
 
@@ -62,6 +67,5 @@ describe 'photos' do
 			expect(page).not_to have_content 'Wow, such squares'
 			expect(page).to have_content 'Photo was deleted successfully'
 		end
-
 	end
 end
