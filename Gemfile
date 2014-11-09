@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'rspec-rails', group: :test
 gem 'capybara', group: :test
+gem 'poltergeist', group: :test
+gem 'database_cleaner', group: :test
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.7'
@@ -17,6 +19,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'paperclip'
 
 gem 'devise'
+gem 'omniauth-facebook'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
