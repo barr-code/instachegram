@@ -1,8 +1,8 @@
-def sign_up
+def sign_up(email = "test@user.com", password = "testpass")
 	visit '/'
 	click_link 'Sign up'
-	fill_in 'Email', with: 'test@user.com'
-	fill_in 'Password', with: 'testpass'
-	fill_in 'Password confirmation', with: 'testpass'
+	fill_in 'Email', with: email
+	fill_in 'Password', with: password
+	fill_in 'Password confirmation', with: password
 	click_button 'Sign up'
 end

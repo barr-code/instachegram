@@ -20,6 +20,7 @@ gem 'paperclip'
 
 gem 'devise'
 gem 'omniauth-facebook'
+gem 'cancan'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 

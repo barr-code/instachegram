@@ -46,4 +46,13 @@ context 'user photos' do
 		click_link 'Add a photo'
 		expect(page).to have_content 'You need to sign in or sign up before continuing.'
 	end
+
+	it 'cannot delete photos someone else uploaded' do
+		sign_up
+		upload_photo
+		expect(page).to have_content 'Delete photo'
+		click_link 'Sign out'
+		sign_up("different@user.com", "password")
+		expect(page).not_to have_content 'Delete photo'
+	end
 end
