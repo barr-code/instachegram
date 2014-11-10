@@ -7,4 +7,7 @@ Rails.application.routes.draw do
     resources :likes
   end
 
+  resources :payments
+  
+
 end

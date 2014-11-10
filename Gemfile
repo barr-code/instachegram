@@ -21,6 +21,7 @@ gem 'paperclip'
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'cancan'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
