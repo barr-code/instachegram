@@ -1,11 +1,11 @@
 class Payment
 	
 	# Amount in cents
-	def create(user, amount)
+	def self.charge(customer, amount)
 		payment = Stripe::Charge.create(
-			:customer 		=> user,
+			:customer 		=> customer.id,
 			:amount 			=> amount,
-			:description 	=> 'Instachegram picture purchase'
+			:description 	=> 'Instachegram picture purchase',
 			:currency 		=> 'usd'
 		)
 	end

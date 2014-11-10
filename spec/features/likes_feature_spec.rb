@@ -4,18 +4,18 @@ require_relative './helpers/user_helper'
 
 describe 'liking photos' do
 
-	# before do
-	# 	sign_up
-	# 	upload_photo
-	# end
+	before do
+		sign_up
+		upload_photo
+	end
 
-	xit 'users can like photos, update like count', js: true do
+	it 'users can like photos, update like count', js: true do
 		visit '/'
 		click_link 'Like'
 		expect(page).to have_content '1 like'
 	end
 
-	xit 'users can like each photo once', js: true do
+	it 'users can like each photo once', js: true do
 		visit '/'
 		click_link 'Like'
 		click_link 'Like'
