@@ -4,7 +4,8 @@
 	<% @photos.reverse.each do |photo| %>
 		<section class="photo">
 			<p><%= image_tag(photo.image.url(:med)) %><br>
-			<%= photo.caption %> <span class="likes_count">  |  <%= photo.likes.count %></span> likes  <%= link_to 'Like', photo_likes_path(photo), class: 'likes-link' %></p>
+			<%= photo.caption %> <span class="likes_count">  |  <%= photo.likes.count %></span> likes
+					<%= link_to 'Like', photo_likes_path(photo), class: 'likes-link' %> </p>
 			<%= link_to 'Edit caption', edit_photo_path(photo) if can?(:update, photo) %>
 			<%= link_to 'Delete photo', photo_path(photo), method: :delete if can?(:destroy, photo) %></p>
 		</section>
