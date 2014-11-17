@@ -5,8 +5,8 @@
 		<section class="photo">
 			<p>
 				<%= image_tag(photo.image.url(:large)) %><br>
-				<%= photo.caption %> <span class="likes_count"><br>  
-				<%= photo.likes.count %></span> likes
+				<%= photo.user.email %> | <%= photo.caption %> 
+				<span class="likes_count"><br><%= photo.likes.count %></span> likes
 				<%= link_to 'Like', photo_likes_path(photo), class: 'likes-link' %> 
 			</p>
 			<%= link_to 'Edit caption', edit_photo_path(photo) if can?(:update, photo) %><br>
