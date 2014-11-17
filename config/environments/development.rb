@@ -36,5 +36,15 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   Paperclip.options[:command_path] = "/usr/local/bin/"
+
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_host_name => 's3.amazonaws.com',
+    :s3_credentials => {
+      :bucket => Rails.application.secrets.BUCKET_NAME,
+      :access_key_id => Rails.application.secrets.AWS_PUBLIC_KEY,
+      :secret_access_key => Rails.application.secrets.AWS_SECRET_KEY
+    }
+  }
   
 end
