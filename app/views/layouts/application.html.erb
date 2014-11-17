@@ -7,13 +7,19 @@
 	  <%= csrf_meta_tags %>
 	</head>
 	<body>
-		<% if user_signed_in? %>
-			<%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-		<% else %>
-			<%= link_to "Sign in", new_user_session_path %><br>
-			<%= link_to "Sign up", new_user_registration_path %><br>
-			<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %><br>
-		<% end %>
+		<header>
+			<a href="/"><img id="banner" src="/images/banner.jpg"></a>
+		</header>
+		
+		<section id="nav_links">
+			<% if user_signed_in? %>
+				<%= link_to "Sign out", destroy_user_session_path, method: :delete, class: 'user_links' %>
+			<% else %>
+				<%= link_to "Sign in", new_user_session_path, class: 'user_links' %> | 
+				<%= link_to "Sign up", new_user_registration_path, class: 'user_links' %> | 
+				<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook), class: 'user_links' %>
+			<% end %>
+		</section>
 		<h2>Welcome to Instachegram</h2>
 		<h4>A photo-sharing social media site for mustaches</h4>
 
