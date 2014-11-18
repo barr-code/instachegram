@@ -9,6 +9,12 @@
 				<span class="likes_count"><br><%= photo.likes.count %></span> likes
 				<%= link_to 'Like', photo_likes_path(photo), class: 'likes-link' %> 
 			</p>
+			<% if photo.comments.any? %>
+				<% photo.comments.each do |comment| %>
+					<%= comment.thoughts %>
+				<% end %>
+			<% end %>
+			<%= link_to 'Comment', new_photo_comment_path(photo) %>
 			<%= link_to 'Edit caption', edit_photo_path(photo) if can?(:update, photo) %><br>
 			<%= link_to 'Delete photo', photo_path(photo), method: :delete if can?(:destroy, photo) %></p>
 		</section>
