@@ -17,5 +17,13 @@ describe 'leaving comments' do
 		expect(page).to have_content "looks good!"
 	end
 
+	it "displays the email address of the user who left the comment" do
+		visit '/'
+		click_link 'Comment'
+		fill_in 'Thoughts', with: "nice stache!"
+		click_button 'Leave Comment'
+		expect(page).to have_content "test@user.com"
+	end
+
 
 end

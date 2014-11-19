@@ -11,7 +11,7 @@
 			</p>
 			<% if photo.comments.any? %>
 				<% photo.comments.each do |comment| %>
-					<%= comment.thoughts %>
+					<%= comment.user.email %>: <%= comment.thoughts %>
 				<% end %>
 			<% end %>
 			<%= link_to 'Comment', new_photo_comment_path(photo) %>
