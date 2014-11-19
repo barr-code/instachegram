@@ -8,6 +8,7 @@ class Ability
       can :read, :all
       can :create, Photo
       can [:update, :destroy], Photo, :user_id => user.id
+      can :create, Comment
     end
   end
 end

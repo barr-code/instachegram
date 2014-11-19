@@ -25,5 +25,14 @@ describe 'leaving comments' do
 		expect(page).to have_content "test@user.com"
 	end
 
+	it "doesn't let users post photos if they're not logged in" do
+		visit '/'
+		click_link 'Sign out'
+		click_link 'Comment'
+		fill_in 'Thoughts', with: 'This should not post'
+		click_button 'Leave Comment'
+		expect(page).to have_content 'You have to be logged in to comment.'
+	end
+
 
 end
